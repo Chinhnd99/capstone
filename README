@@ -1,0 +1,28 @@
+<!-- <Please check image which i attcaced on folder screen-shot> -->
+
+First I build 3 microservice:
+data
+sample-backend
+logic
+Step 2: I run 3 microservice on local
+Step 3: I write Dockerfile for each folder
+Step 4: I log in on AWS and create a cluster and node group to prepare deploy my project
+Step 5: I write build.yaml on folder .github/workflows to run CI/CD pipeline and then Docker Image will be pushed to Docker hub
+Step 6: run command line to create server env
+aws eks --region us-west-1 update-kubeconfig --name capstone
+Step 7: run command line
+kubectl apply -f kubectl/data-deployment.yaml
+kubectl apply -f kubectl/backend-deployment.yaml
+kubectl apply -f kubectl/communication-deployment.yaml
+Step 8: wating deploy and check it by run:
+kubectl get pods
+kubectl get service
+kubectl get deployment
+kubectl logs analytics-74f5598599-45vxs
+kubectl logs analytics-74f5598599-45vxs
+kdp backend-5cfff7b946-84cpc
+Step 9: export URL to global:
+k expose deployment sample-analytics --type=LoadBalancer --name=publicsampleanalytics
+Step 10: check heath of project and using postman to send request
+
+<!-- <Please check image which i attcaced on folder screen-shot> -->
